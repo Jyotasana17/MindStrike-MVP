@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MindStrike - a physics-based educational puzzle game that turns learning into a satisfying skill challenge."
+    />
+    <title>MindStrike</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <header class="top-bar">
+        <div class="brand-block">
+          <div class="brand-mark">M</div>
+          <div>
+            <p class="eyebrow">MindStrike</p>
+            <h1>MindStrike</h1>
+          </div>
+        </div>
+
+        <div class="profile-pill">
+          <span class="xp-badge">LV. <strong id="levelBadge">8</strong></span>
+          <span class="xp-total"><strong id="xpBadge">2,480</strong> XP</span>
+        </div>
+      </header>
+
+      <main id="home-screen" class="screen active">
+        <section class="hero-panel">
+          <div class="hero-copy">
+            <div class="title-wrap">
+              <span class="tag">Learn through motion</span>
+              <h2>Play. Think. Learn.</h2>
+            </div>
+            <p>
+              Pocket the right ideas into the correct category holes and turn concept mastery into a
+              thrilling physics challenge.
+            </p>
+
+            <div class="cta-row">
+              <button class="primary-button" data-action="start-game">Start Game</button>
+              <button class="secondary-button" data-action="subject-select">Choose Subject</button>
+            </div>
+
+            <div class="quick-actions">
+              <button class="panel-button" data-action="daily-challenge">Daily Challenge</button>
+              <button class="panel-button" data-action="mini-player">Mini Player</button>
+              <button class="panel-button" data-action="leaderboard">Leaderboard</button>
+              <button class="panel-button" data-action="profile">Profile</button>
+            </div>
+          </div>
+
+          <div class="hero-showcase">
+            <div class="showcase-board">
+              <div class="mini-hole prime">PRIME</div>
+              <div class="mini-hole composite">COMPOSITE</div>
+              <div class="mini-hole odd">ODD</div>
+              <div class="mini-hole even">EVEN</div>
+              <div class="mini-token token-1">13</div>
+              <div class="mini-token token-2">8</div>
+              <div class="mini-token token-3">5</div>
+              <div class="mini-token token-4">15</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="dashboard-grid">
+          <div class="metric-card accent-card">
+            <span class="metric-label">Current streak</span>
+            <strong>7 days</strong>
+            <small>+18% momentum</small>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Best score</span>
+            <strong>2,430</strong>
+            <small>Numbers / Hard</small>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Mastery</span>
+            <strong>82%</strong>
+            <small>Prime & Even</small>
+          </div>
+        </section>
+      </main>
+
+      <main id="subject-screen" class="screen">
+        <section class="screen-header">
+          <div>
+            <p class="eyebrow">Choose your arena</p>
+            <h2>Subject Selection</h2>
+          </div>
+          <button class="ghost-button back-home">Back</button>
+        </section>
+
+        <div class="subject-grid">
+          <article class="subject-card available" data-subject="numbers">
+            <div class="subject-icon">🔢</div>
+            <h3>Numbers</h3>
+            <p>Prime, composite, odd, and even logic.</p>
+            <span class="state-tag">Playable</span>
+          </article>
+
+          <article class="subject-card available" data-subject="periodic">
+            <div class="subject-icon">🧪</div>
+            <h3>Periodic Table</h3>
+            <p>Sort elements by block and shell.</p>
+            <span class="state-tag">Playable</span>
+          </article>
+
+          <article class="subject-card locked" data-subject="biology">
+            <div class="subject-icon">🧬</div>
+            <h3>Biology</h3>
+            <p>Cell systems and mutations unlock soon.</p>
+            <span class="state-tag">Locked</span>
+          </article>
+
+          <article class="subject-card locked" data-subject="geography">
+            <div class="subject-icon">🌍</div>
+            <h3>Geography</h3>
+            <p>Landforms and ecosystems coming next.</p>
+            <span class="state-tag">Locked</span>
+          </article>
+
+          <article class="subject-card locked" data-subject="cs">
+            <div class="subject-icon">💻</div>
+            <h3>Computer Science</h3>
+            <p>Algorithms and logic solver module.</p>
+            <span class="state-tag">Locked</span>
+          </article>
+        </div>
+      </main>
+
+      <main id="setup-screen" class="screen">
+        <section class="screen-header">
+          <div>
+            <p class="eyebrow" id="setupSubjectLabel">Numbers</p>
+            <h2>Game Setup</h2>
+          </div>
+          <button class="ghost-button back-home">Back</button>
+        </section>
+
+        <div class="setup-grid">
+          <div class="setup-panel">
+            <h3>Difficulty</h3>
+            <div class="difficulty-list">
+              <button class="difficulty-card active" data-difficulty="easy">
+                <span class="difficulty-title">Easy</span>
+                <span class="difficulty-copy">Numbers 1–30, stationary tokens</span>
+              </button>
+              <button class="difficulty-card" data-difficulty="medium">
+                <span class="difficulty-title">Medium</span>
+                <span class="difficulty-copy">Numbers 1–100, time pressure</span>
+              </button>
+              <button class="difficulty-card" data-difficulty="hard">
+                <span class="difficulty-title">Hard</span>
+                <span class="difficulty-copy">Higher speed, more chaos</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="setup-panel summary-panel">
+            <h3>Mission</h3>
+            <ul class="summary-list">
+              <li>Realistic carrom physics</li>
+              <li>Score streaks & combo boosts</li>
+              <li>Instant concept feedback</li>
+              <li>AI-powered review after play</li>
+            </ul>
+            <button class="primary-button wide-button" id="launchGame">Start Challenge</button>
+          </div>
+        </div>
+      </main>
+
+      <main id="world-screen" class="screen">
+        <section class="screen-header">
+          <div>
+            <p class="eyebrow">World map</p>
+            <h2>Number Garden</h2>
+          </div>
+          <button class="ghost-button back-home">Back</button>
+        </section>
+
+        <div class="world-map-shell">
+          <div class="world-curve"></div>
+          <div id="worldMap" class="world-map"></div>
+        </div>
+      </main>
+
+      <main id="game-screen" class="screen game-screen-shell">
+        <div class="hud-bar">
+          <div class="hud-item"><span>Score</span><strong id="scoreValue">0</strong></div>
+          <div class="hud-item"><span>XP</span><strong id="xpValue">0</strong></div>
+          <div class="hud-item"><span>Combo</span><strong id="comboValue">x1</strong></div>
+          <div class="hud-item"><span>Accuracy</span><strong id="accuracyValue">100%</strong></div>
+          <div class="hud-item"><span>Tokens</span><strong id="remainingValue">0</strong></div>
+          <div class="hud-item"><span>Timer</span><strong id="timerValue">00:00</strong></div>
+        </div>
+
+        <div class="mission-bar">
+          <span class="mission-label">Mission</span>
+          <strong id="missionValue">Pocket 5 Prime Numbers</strong>
+        </div>
+
+        <div class="board-controls">
+          <div class="aim-mode-switch" aria-label="Aiming mode">
+            <button class="aim-mode active" data-aim-mode="beginner">Beginner</button>
+            <button class="aim-mode" data-aim-mode="normal">Normal</button>
+            <button class="aim-mode" data-aim-mode="expert">Expert</button>
+          </div>
+          <div class="mascot-bubble">✨ Awesome!</div>
+        </div>
+
+        <div class="board-panel">
+          <canvas id="gameCanvas" width="960" height="620"></canvas>
+          <div id="feedback-toast" class="toast hidden"></div>
+          <div id="countdownOverlay" class="countdown-overlay hidden">
+            <div class="countdown-card">
+              <span class="countdown-label">Level 1</span>
+              <strong id="countdownText">3</strong>
+              <small id="countdownMission">Pocket 5 Prime Numbers</small>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <main id="results-screen" class="screen">
+        <section class="screen-header">
+          <div>
+            <p class="eyebrow">Round complete</p>
+            <h2>Results</h2>
+          </div>
+        </section>
+
+        <div class="results-layout">
+          <div class="results-card large-result">
+            <div class="score-ring">
+              <span id="finalScoreValue">240</span>
+            </div>
+            <div class="result-copy">
+              <p class="eyebrow mini">Final Score</p>
+              <h3 id="resultTitle">Excellent run</h3>
+              <p id="resultSummary">You snapped through prime and even logic with excellent momentum.</p>
+            </div>
+          </div>
+
+          <div class="results-card detail-card">
+            <div class="stat-row"><span>Accuracy</span><strong id="resultsAccuracy">92%</strong></div>
+            <div class="stat-row"><span>XP Earned</span><strong id="resultsXP">120</strong></div>
+            <div class="stat-row"><span>Best Combo</span><strong id="resultsCombo">x3</strong></div>
+            <div class="stat-row"><span>Time</span><strong id="resultsTime">01:24</strong></div>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="primary-button" id="checkAiAnalysis">AI Analysis</button>
+          <button class="secondary-button" id="playAgain">Play Again</button>
+        </div>
+      </main>
+
+      <main id="analysis-screen" class="screen">
+        <section class="screen-header">
+          <div>
+            <p class="eyebrow">Adaptive memory model</p>
+            <h2>AI Analysis</h2>
+          </div>
+        </section>
+
+        <div class="analysis-grid">
+          <div class="analysis-card big-panel">
+            <div class="ai-headline">
+              <span>Overall Score</span>
+              <strong id="overallScoreValue">82%</strong>
+            </div>
+            <div class="skill-breakdown" id="skillBreakdown"></div>
+          </div>
+
+          <div class="analysis-card">
+            <h3>AI Recommendation</h3>
+            <blockquote id="aiRecommendation">
+              You are strong at Prime and Even numbers. Practice Odd Numbers for 5 minutes to improve mastery.
+            </blockquote>
+            <button class="primary-button wide-button" id="startPractice">Start Personalized Practice</button>
+          </div>
+        </div>
+      </main>
+
+      <main id="practice-screen" class="screen">
+        <section class="screen-header">
+          <div>
+            <p class="eyebrow">Focused training</p>
+            <h2>Personalized Practice</h2>
+          </div>
+        </section>
+
+        <div class="practice-layout">
+          <div class="practice-card">
+            <h3 id="practiceTitle">Odd Numbers Booster</h3>
+            <p id="practiceCopy">Target odd numbers and sharpen your pattern recognition with a quick precision round.</p>
+            <div class="stat-pill-group" id="practiceStats"></div>
+            <button class="primary-button wide-button" id="practiceNow">Launch Practice</button>
+          </div>
+        </div>
+      </main>
+
+      <main id="mini-player-screen" class="screen">
+        <section class="screen-header">
+          <div>
+            <p class="eyebrow">Arcade mode</p>
+            <h2>Mini Player</h2>
+          </div>
+          <button class="ghost-button back-home">Back</button>
+        </section>
+
+        <div class="mini-player-grid">
+          <article class="mini-game-card">
+            <div class="mini-game-emoji">🔺</div>
+            <div class="mini-game-copy">
+              <h3>Shape Hunter</h3>
+              <p>Spot the target shape before the crowd disappears.</p>
+            </div>
+            <div class="mini-game-meta">
+              <span>Easy</span>
+              <span>Best 360</span>
+            </div>
+            <button class="primary-button mini-game-launch" data-mini-game="shapeHunter">Play</button>
+          </article>
+
+          <article class="mini-game-card">
+            <div class="mini-game-emoji">🪣</div>
+            <div class="mini-game-copy">
+              <h3>Number Catcher</h3>
+              <p>Build the expression that hits the target number.</p>
+            </div>
+            <div class="mini-game-meta">
+              <span>Medium</span>
+              <span>Best 520</span>
+            </div>
+            <button class="primary-button mini-game-launch" data-mini-game="numberCatcher">Play</button>
+          </article>
+
+          <article class="mini-game-card">
+            <div class="mini-game-emoji">🎯</div>
+            <div class="mini-game-copy">
+              <h3>Target Strike</h3>
+              <p>Fire only the correct category and stack combos.</p>
+            </div>
+            <div class="mini-game-meta">
+              <span>Hard</span>
+              <span>Best 610</span>
+            </div>
+            <button class="primary-button mini-game-launch" data-mini-game="targetStrike">Play</button>
+          </article>
+        </div>
+      </main>
+
+      <main id="mini-game-screen" class="screen mini-game-screen-shell">
+        <section class="screen-header">
+          <div>
+            <p class="eyebrow">Mini challenge</p>
+            <h2 id="miniGameTitle">Shape Hunter</h2>
+          </div>
+          <button class="ghost-button back-home">Back</button>
+        </section>
+
+        <div class="mini-game-toolbar">
+          <div class="mini-game-stat"><span>Score</span><strong id="miniGameScore">0</strong></div>
+          <div class="mini-game-stat"><span>Combo</span><strong id="miniGameCombo">x1</strong></div>
+          <div class="mini-game-stat"><span>Accuracy</span><strong id="miniGameAccuracy">100%</strong></div>
+          <div class="mini-game-stat"><span>Time</span><strong id="miniGameTimer">45s</strong></div>
+        </div>
+
+        <div class="mini-game-mission" id="miniGameTarget">FIND: TRIANGLE</div>
+        <div class="mini-game-expression" id="miniGameExpression">Expression: —</div>
+
+        <div class="mini-game-shell">
+          <canvas id="miniGameCanvas" width="960" height="620"></canvas>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
