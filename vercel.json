@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "framework": "vite",
+  "buildCommand": "node ./scripts/build.mjs",
+  "outputDirectory": "dist"
+}
